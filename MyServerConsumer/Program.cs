@@ -22,7 +22,7 @@ namespace MyServerConsumer
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.ExchangeDeclare("person", ExchangeType.Fanout);
+                    channel.ExchangeDeclare("person", ExchangeType.Fanout,durable:true);
 
                     channel.QueueDeclare("person", durable: true, exclusive: false, autoDelete: false);
 
